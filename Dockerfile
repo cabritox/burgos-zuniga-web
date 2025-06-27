@@ -1,10 +1,11 @@
-# Imagen base de Microsoft con ASP.NET 4.8 (compatible con Web Forms)
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+# Imagen base con ASP.NET 4.8 sobre Windows Server Core
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8
 
-# Crear directorio para la aplicación
+# Crear una carpeta dentro del contenedor para tu aplicación
 WORKDIR /inetpub/wwwroot
 
-# Copiar archivos publicados desde el contenedor local al contenedor
+# Copiar los archivos del proyecto al contenedor
 COPY . .
 
-# No se necesita comando de ejecución porque IIS ya está configurado
+# Render usa el puerto 80 por defecto
+EXPOSE 80
